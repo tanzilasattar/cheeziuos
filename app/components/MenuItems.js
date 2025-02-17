@@ -41,10 +41,10 @@ const MenuItems = ({ activeCategory, setActiveCategory }) => {
                         className="my-2"
                     >
                         <h2 className="text-2xl font-bold mb-4">{category.name}</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-1 gap-4 md:gap-6">
                             {category.items.map((item) => (
                                 <div key={item.id} className="group rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
-                                    <div className="relative h-48 w-full">
+                                    <div className="relative w-full ">
                                         <img
                                             src={item.image}
                                             alt={item.name}
