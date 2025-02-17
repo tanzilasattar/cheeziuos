@@ -69,7 +69,7 @@ const CategoryTabs = ({ activeCategory, setActiveCategory }) => {
                                 whitespace-nowrap px-4 py-2 rounded-md transition-colors
                                 ${activeCategory === category.id 
                                     ? 'bg-yellow-400 text-black font-medium' 
-                                    : 'bg-white hover:bg-gray-100'
+                                    : 'bg-gray-100'
                                 }
                             `}
                         >
