@@ -33,23 +33,23 @@ const MenuItems = ({ activeCategory, setActiveCategory }) => {
 
     return (
         <div className="flex max-w-5xl mx-auto relative">
-            <div className="w-full max-w-6xl mx-auto px-4">
+            <div className="top-0 w-full bg-white shadow-md w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {data.categories.map((category, index) => (
                     <div 
                         key={category.id} 
                         ref={el => categoryRefs.current[index] = el} 
                         className="my-2"
                     >
-                        <h2 className="text-2xl font-bold mb-4">{category.name}</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-1 gap-4 md:gap-6">
+                        <h2 className="text-2xl font-bold mb-4 text-black dark:text-white">{category.name}</h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 xs:grid-cols-1 gap-4 md:gap-6">
                             {category.items.map((item) => (
-                                <div key={item.id} className="group rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col">
+                                <div key={item.id} className="group rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col bg-white dark:bg-gray-800">
                                     <div className="relative w-full ">
                                         <img
                                             src={item.image}
                                             alt={item.name}
                                             className="w-full h-full object-cover"
-                                            priority
+                                            loading="lazy"
                                         />
                                         <img 
                                             src="https://cheezious.com/_next/static/media/emptyHeart.0259b0f6.svg" 
@@ -58,7 +58,7 @@ const MenuItems = ({ activeCategory, setActiveCategory }) => {
                                     </div>
                                     <div className="p-4 bg-gray-100 flex-1 flex flex-col min-h-[200px]">
                                         <div className="flex-1">
-                                            <h1 className="text-md font-bold line-clamp-2 py-2">
+                                            <h1 className="text-md font-bold line-clamp-2 py-2 text-black dark:text-white">
                                                 {item.name}
                                             </h1>
                                             <p className="text-gray-600 text-sm mt-1 line-clamp-2 min-h-[40px]">
