@@ -4,12 +4,25 @@ import { HeartIcon } from 'lucide-react'
 import data from '...@/app/data/menu.json';
 import EmptyCart from './EmptyCart';
 
+
 const MenuItems = ({ activeCategory, setActiveCategory }) => {
     const categoryRefs = useRef([]);
+    const [isScrolling, setIsScrolling] = useState(false);
 
     useEffect(() => {
+        let timeoutId;
+        
         const handleScroll = () => {
-            let currentActiveCategory = activeCategory; 
+            if (isScrolling) return;
+            
+            setIsScrolling(true);
+            
+            // Clear any existing timeout
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+
+            let currentActiveCategory = activeCategory;
 
             categoryRefs.current.forEach((ref, index) => {
                 if (ref) {
@@ -23,13 +36,23 @@ const MenuItems = ({ activeCategory, setActiveCategory }) => {
             if (currentActiveCategory !== activeCategory) {
                 setActiveCategory(currentActiveCategory);
             }
+
+            // Set a timeout to allow next scroll check
+            timeoutId = setTimeout(() => {
+                setIsScrolling(false);
+            }, 150); // Throttle scroll events
         };
 
-        window.addEventListener('scroll', handleScroll);
+        // Add passive scroll listener for better performance
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
         };
-    }, [activeCategory, setActiveCategory]);
+    }, [activeCategory, setActiveCategory, isScrolling]);
 
     return (
         <div className="flex max-w-5xl mx-auto relative">
@@ -41,7 +64,7 @@ const MenuItems = ({ activeCategory, setActiveCategory }) => {
                         className="my-2"
                     >
                         <h2 className="text-2xl font-bold mb-4 text-black dark:text-white">{category.name}</h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 xs:grid-cols-1 gap-4 md:gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 sm:grid-cols-1 xs:grid-cols-1 gap-4 md:gap-6">
                             {category.items.map((item) => (
                                 <div key={item.id} className="group rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col bg-white dark:bg-gray-800">
                                     <div className="relative w-full ">
