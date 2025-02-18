@@ -47,8 +47,8 @@ const CategoryTabs = ({ activeCategory, setActiveCategory }) => {
     }, [activeCategory]);
 
     return (
-        <div className="sticky top-20 z-10 bg-white shadow-md">
-            <div className="max-w-[80vw] flex h-15 items-center p-4 mx-auto bg-gray-200 shadow-md">
+        <div className=" bg-white">
+            <div className="max-w-[80vw] flex h-15 items-center p-4 mx-auto bg-gray-100 ">
                 
                 {/* Scroll Left Button */}
                 <button onClick={scrollLeft} className="flex items-center justify-center w-6 h-6 border-2 border-red-500 text-red-500 rounded-full text-gray-500 transition-colors hover:bg-red-500 hover:text-white">
@@ -69,7 +69,7 @@ const CategoryTabs = ({ activeCategory, setActiveCategory }) => {
                                 whitespace-nowrap px-4 py-2 rounded-md transition-colors
                                 ${activeCategory === category.id 
                                     ? 'bg-yellow-400 text-black font-medium' 
-                                    : 'bg-gray-100'
+                                    : 'bg-white'
                                 }
                             `}
                         >

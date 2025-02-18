@@ -1,10 +1,11 @@
+"use client"
 import React, { useState, useEffect, useRef } from "react";
 import data from "...@/app/data/menu.json";
 import EmptyCart from "./EmptyCart";
-import Navbar from "./Navbar";
 
 const MenuItems = ({ activeCategory, setActiveCategory }) => {
   const categoryRefs = useRef([]);
+  const [categories] = useState(data.categories);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,7 +14,7 @@ const MenuItems = ({ activeCategory, setActiveCategory }) => {
       categoryRefs.current.forEach((ref, index) => {
         if (ref) {
           const rect = ref.getBoundingClientRect();
-          if (rect.top <= 100 && rect.bottom >= 100) {
+          if (rect.top <= 140 && rect.bottom >= 140) {
             currentActiveCategory = data.categories[index].id;
           }
         }
@@ -31,15 +32,10 @@ const MenuItems = ({ activeCategory, setActiveCategory }) => {
   }, [activeCategory, setActiveCategory]);
 
   return (
-    <div className="max-w-screen bg-white mx-auto relative">
-      {/* Sticky Navbar */}
-      <div className="sticky top-0 z-50 bg-white shadow-md">
-        <Navbar />
-      </div>
-
-      <div className="flex">
+    <div className="max-w-screen bg-white mx-auto ">
+      
         <div className="flex-1 mx-auto max-w-screen-xl">
-          {data.categories.map((category, index) => (
+          {categories.map((category, index) => (
             <div
               key={category.id}
               ref={(el) => (categoryRefs.current[index] = el)}
@@ -95,10 +91,10 @@ const MenuItems = ({ activeCategory, setActiveCategory }) => {
         </div>
 
         {/* Empty Cart Section */}
-        <div className="hidden bg-white lg:block sticky top-10 right-24 w-70 h-screen">
+        {/* <div className="hidden bg-white lg:block sticky top-32 right-24 w-70 h-screen">
           <EmptyCart />
-        </div>
-      </div>
+        </div> */}
+    
     </div>
   );
 };
