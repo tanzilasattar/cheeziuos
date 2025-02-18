@@ -48,7 +48,7 @@ const CategoryTabs = ({ activeCategory, setActiveCategory }) => {
 
     return (
         <div className="sticky top-0 z-10 bg-white shadow-md">
-            <div className="max-w-5xl flex h-15 items-center p-4 mx-auto sm:px-6 lg:px-4 bg-gray-200 shadow-md">
+            <div className="max-w-[80vw] flex h-15 items-center p-4 mx-auto bg-gray-200 shadow-md">
                 
                 {/* Scroll Left Button */}
                 <button onClick={scrollLeft} className="flex items-center justify-center w-6 h-6 border-2 border-red-500 text-red-500 rounded-full text-gray-500 transition-colors hover:bg-red-500 hover:text-white">

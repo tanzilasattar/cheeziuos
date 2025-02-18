@@ -22,7 +22,7 @@ const MenuItems = ({ activeCategory, setActiveCategory }) => {
                 setActiveCategory(currentActiveCategory);
             }
         };
-
+ 
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -30,19 +30,19 @@ const MenuItems = ({ activeCategory, setActiveCategory }) => {
     }, [activeCategory, setActiveCategory]);
 
     return (
-        <div className="flex max-w-5xl mx-auto relative">
-            <div className="flex-1 w-full bg-white shadow-md px-4 sm:px-6 lg:px-8">
+        <div className="flex max-w-screen bg-white mx-auto relative">
+            <div className="flex-1 mx-auto max-w-screen shadow-md ">
                 {data.categories.map((category, index) => (
                     <div 
                         key={category.id} 
                         ref={el => categoryRefs.current[index] = el} 
-                        className="my-2"
+                        className="my-2 flex flex-col w-[70vw]"
                     >
-                        <h2 className="text-2xl font-bold mb-4">{category.name}</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <h2 className="text-2xl ms-[9vw] font-bold mb-4">{category.name}</h2>
+                        <div className="flex flex-wrap ms-[9vw] w-[58vw] gap-4">
                             {category.items.map((item) => (
-                                <div key={item.id} className="group rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col bg-white">
-                                    <div className="relative w-full">
+                                <div key={item.id} className="group rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-wrap w-[250px] bg-white">
+                                    <div className="relative w-[250px]">
                                         <img
                                             src={item.image}
                                             alt={item.name}
@@ -87,7 +87,7 @@ const MenuItems = ({ activeCategory, setActiveCategory }) => {
             </div>
 
             {/* Empty Cart Section */}
-            <div className="hidden lg:block sticky top-10 right-0 w-80 h-screen">
+            <div className="hidden bg-white lg:block sticky top-10 right-24 w-80 h-screen">
                 <EmptyCart />
             </div>
         </div>
