@@ -23,6 +23,3 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
-.food-items {
-  display: none;
-}

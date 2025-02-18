@@ -46,7 +46,7 @@ const MenuItems = ({ activeCategory, setActiveCategory }) => {
                                         <img
                                             src={item.image}
                                             alt={item.name}
-                                            className="w-full h-55 object-cover"
+                                            className="w-full h-56 object-cover"
                                             loading="lazy"
                                         />
                                     </div>
