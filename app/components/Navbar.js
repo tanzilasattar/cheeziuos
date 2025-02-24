@@ -1,7 +1,12 @@
 "use client"
 import React from 'react'
 import { Search, ChevronRight, X } from 'lucide-react'
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import dynamic from "next/dynamic"; 
+// import { MapContainer, TileLayer, Marker } from "react-leaflet";
+const MapContainer = dynamic(() => import("react-leaflet").then(mod => mod.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import("react-leaflet").then(mod => mod.TileLayer), { ssr: false });
+const Marker = dynamic(() => import("react-leaflet").then(mod => mod.Marker), { ssr: false });
+
 import { useState } from 'react';
 import "leaflet/dist/leaflet.css";
 
