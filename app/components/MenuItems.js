@@ -8,6 +8,7 @@ const MenuItems = ({ activeCategory, setActiveCategory }) => {
   const [categories] = useState(data.categories);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     const handleScroll = () => {
       let currentActiveCategory = activeCategory;
 
