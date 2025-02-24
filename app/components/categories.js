@@ -51,7 +51,7 @@ const CategoryTabs = ({ activeCategory, setActiveCategory }) => {
             <div className="max-w-[80vw] flex h-15 items-center p-4 mx-auto bg-gray-100 ">
                 
                 {/* Scroll Left Button */}
-                <button onClick={scrollLeft} className="flex items-center justify-center w-6 h-6 border-2 border-red-500 text-red-500 rounded-full text-gray-500 transition-colors hover:bg-red-500 hover:text-white">
+                <button onClick={scrollLeft} className="flex items-center justify-center w-6 h-6 border-2 border-red-500 text-red-500 rounded-full  transition-colors hover:bg-red-500 hover:text-white">
                     <ChevronLeft className="w-6 h-6" />
                 </button>
 
@@ -79,7 +79,7 @@ const CategoryTabs = ({ activeCategory, setActiveCategory }) => {
                 </div>
 
                 {/* Scroll Right Button */}
-                <button onClick={scrollRight} className="flex items-center justify-center w-6 h-6 border-2 border-red-500 text-red-500 rounded-full text-gray-500 transition-colors hover:bg-red-500 hover:text-white">
+                <button onClick={scrollRight} className="flex items-center justify-center w-6 h-6 border-2 border-red-500 text-red-500 rounded-full  transition-colors hover:bg-red-500 hover:text-white">
                     <ChevronRight className="w-6 h-6" />
                 </button>
 

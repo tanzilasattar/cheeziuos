@@ -1,6 +1,7 @@
+"use client"
 import React from 'react'
-import { Search, UserRound, Menu, MapPin, ChevronRight, X } from 'lucide-react'
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Search, ChevronRight, X } from 'lucide-react'
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { useState } from 'react';
 import "leaflet/dist/leaflet.css";
 
