@@ -71,7 +71,7 @@ const Navbar = () => {
           <div className='bg-white justify-between max-w-2xl mx-auto rounded-lg p-4 z-50 fixed inset-x-0 shadow-lg'>
 
             <div className='flex justify-between items-center'>
-              <h2 className='text-2xl font-bold '>Enter the Address</h2>
+              <h2 className='text-2xl font-bold '>Enter Address</h2>
               <button onClick={() => setIsDrawerOpen(false)} className='p-2 rounded-full bg-red-500'>
                 <X size={20}></X>
 
